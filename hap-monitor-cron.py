@@ -111,6 +111,8 @@ def backend_graphite(url, stats, prefix):
             logger.error('Failed reporting %s.%s %s %s\n' % (prefix, s, float(stats[s]), time.time()))
             logger.error(traceback.format_exc(e))
 
+    sock.close();
+
 
 def backend_statsd(url, stats, prefix):
     from pystatsd import Client
